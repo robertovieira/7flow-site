@@ -14,14 +14,14 @@
         body, html {
             height: 100%;
             margin: 0;
-            background: #f9f9f9;
+            background: #f2f2f7; /* Cinza azulado sutil no estilo Apple */
             color: #1d1d1f;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
             overflow: hidden;
-            animation: backgroundChange 15s infinite, fadeInBody 1s ease-out;
+            animation: fadeInBody 1s ease-out;
         }
 
         .content-wrapper {
@@ -52,18 +52,16 @@
 
         /* Estilo para o .cloud */
         h1 .domain-suffix {
-            font-size: 0.8em; /* Menor que o H1 principal */
-            font-weight: 500; /* Um pouco mais leve, talvez */
-            /* Gradiente vibrante */
-            background-image: linear-gradient(45deg, #007aff, #ff2d55, #ff9500); /* Azul, Rosa, Laranja Apple */
-            -webkit-background-clip: text; /* Clip para navegadores Webkit (Chrome, Safari) */
+            font-size: 0.8em;
+            font-weight: 500;
+            background-image: linear-gradient(45deg, #007aff, #ff2d55, #ff9500, #007aff);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
             background-clip: text;
-            color: transparent; /* Torna a cor do texto transparente para mostrar o gradiente */
-            /* Pequeno ajuste vertical se necessário */
-            /* vertical-align: baseline; */
-            /* Adiciona um padding sutil se o corte do gradiente parecer abrupto */
+            color: transparent;
             padding-left: 0.1em;
             padding-right: 0.1em;
+            animation: gradientMove 8s linear infinite;
         }
 
         p.description {
@@ -183,6 +181,15 @@
             }
             100% {
                 background: #f9f9f9; /* Volta ao início */
+            }
+        }
+
+        @keyframes gradientMove {
+            0% {
+                background-position: 300% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
             }
         }
 
