@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7Flow - Explorando Tecnologia</title>
+    <style>
+        html {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            /* Gradiente muito sutil */
+            background: linear-gradient(150deg, #f9f9f9 0%, #e8e8ed 100%);
+            background-size: 200% 200%; /* Necessário para animar o gradiente */
+            color: #1d1d1f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+            /* Animação do gradiente + fade-in inicial */
+            animation: subtleGradientShift 15s ease infinite, fadeInBody 1s ease-out;
+        }
+
+        .content-wrapper {
+            max-width: 680px;
+            padding: 60px 20px 40px 20px; /* Ajustado padding inferior */
+            display: flex; /* Facilitar alinhamento do footer */
+            flex-direction: column;
+            align-items: center;
+            min-height: 300px; /* Altura mínima para garantir espaço */
+        }
+
+        .main-content { /* Renomeado para classe */
+             flex-grow: 1; /* Ocupa espaço disponível, empurrando contato para baixo */
+             width: 100%; /* Garante que o conteúdo centralize corretamente */
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 600;
+            color: #000000;
+            margin-bottom: 1rem;
+            letter-spacing: -0.015em;
+            /* Animação de entrada */
+            opacity: 0;
+            transform: translateY(15px);
+            animation: slideUpFadeIn 0.8s 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+
+        /* Estilo para o .cloud */
+        h1 .domain-suffix {
+            font-size: 0.8em; /* Menor que o H1 principal */
+            font-weight: 500; /* Um pouco mais leve, talvez */
+            /* Gradiente vibrante */
+            background-image: linear-gradient(45deg, #007aff, #ff2d55, #ff9500); /* Azul, Rosa, Laranja Apple */
+            -webkit-background-clip: text; /* Clip para navegadores Webkit (Chrome, Safari) */
+            background-clip: text;
+            color: transparent; /* Torna a cor do texto transparente para mostrar o gradiente */
+            /* Pequeno ajuste vertical se necessário */
+            /* vertical-align: baseline; */
+            /* Adiciona um padding sutil se o corte do gradiente parecer abrupto */
+            padding-left: 0.1em;
+            padding-right: 0.1em;
+        }
+
+        p.description {
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: #6e6e73;
+            max-width: 580px;
+            margin: 0 auto 2rem auto;
+            line-height: 1.6;
+             /* Animação de entrada com delay */
+            opacity: 0;
+            transform: translateY(15px);
+            animation: slideUpFadeIn 0.8s 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+
+        /* Estilo para texto em negrito */
+        strong {
+            color: #1d1d1f; /* Cor escura principal para destaque */
+            font-weight: 600; /* Garante o peso da fonte */
+        }
+
+        /* --- Footer de Contato Horizontal --- */
+        .footer-contact {
+            margin-top: 3rem; /* Espaço acima do footer */
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap; /* Permite quebrar linha se necessário */
+            gap: 1.5rem; /* Espaçamento entre itens */
+            opacity: 0;
+            transform: translateY(15px);
+            animation: slideUpFadeIn 0.8s 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+
+        .footer-contact .contact-item {
+            display: flex;
+            align-items: center;
+            color: #555;
+            font-size: 0.9rem; /* Texto do telefone um pouco menor */
+        }
+
+        .footer-contact a,
+        .footer-contact .icon-placeholder { /* Placeholder para telefone */
+            color: #86868b; /* Cor cinza suave para ícones */
+            text-decoration: none;
+            transition: color 0.2s ease-in-out;
+            display: inline-flex; /* Alterado para inline-flex */
+            align-items: center; /* Adiciona alinhamento vertical centralizado */
+        }
+
+        .footer-contact a:hover {
+            color: #1d1d1f; /* Alterado para a cor principal do texto (cinza escuro) */
+        }
+
+        .footer-contact svg {
+            width: 22px; /* Ícones ligeiramente maiores */
+            height: 22px;
+            fill: currentColor; /* Cor herdada do elemento pai (a ou span) */
+        }
+
+         .footer-contact .phone-number {
+             margin-left: 0.5rem; /* Espaço entre ícone de telefone e número */
+         }
+
+        /* --- Animações --- */
+
+        /* Fade-in geral do corpo */
+        @keyframes fadeInBody {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Deslizar para cima + Fade-in para texto */
+        @keyframes slideUpFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Movimento sutil do gradiente */
+        @keyframes subtleGradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+
+        /* --- Responsividade --- */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+            p.description {
+                font-size: 1.1rem;
+                margin-bottom: 1.5rem;
+            }
+             .footer-contact { margin-top: 2rem; gap: 1.2rem;}
+            .footer-contact svg { width: 20px; height: 20px; }
+            .footer-contact .contact-item { font-size: 0.85rem; }
+            .content-wrapper { padding: 40px 15px 30px 15px; }
+        }
+         @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            h1 .domain-suffix { font-size: 0.9em; } /* Ajuste fino para telas menores */
+            p.description {
+                font-size: 1rem;
+            }
+             .footer-contact { gap: 1rem; } /* Menor espaçamento */
+            .footer-contact svg { width: 18px; height: 18px; }
+             .footer-contact .contact-item { font-size: 0.8rem; }
+         }
+    </style>
+</head>
+<body>
+    <div class="content-wrapper">
+        <div class="main-content">
+            <h1>7Flow<span class="domain-suffix">.cloud</span></h1>
+            <p class="description">
+                Projeto pessoal dedicado ao estudo contínuo de <strong>Programação</strong>, <strong>Inteligência Artificial</strong>, <strong>Automação</strong> e <strong>DevOps</strong>.
+            </p>
+        </div>
+
+        <!-- Footer de Contato -->
+        <div class="footer-contact">
+            <!-- Telefone com ícone -->
+            <div class="contact-item icon-placeholder">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" title="Telefone"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                <span class="phone-number">+55 81 9 9521-5015</span>
+            </div>
+             <!-- Email com Ícone Link -->
+            <a href="mailto:rv@robertovieira.com.br" title="Email">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </a>
+             <!-- LinkedIn com Ícone Link -->
+            <a href="https://linkedin.com/in/rvbertovieira" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zm-11 6H5v9h3V9zm-1.5-2a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm11 2h-2.8c-.3 0-.5.2-.6.5v-.4h-3v9h3v-4.5c0-1.4.3-2.5 1.9-2.5 1.5 0 1.6 1.1 1.6 2.6V18h3v-5.1c0-2.8-1.4-4-3.1-4z"/></svg>
+            </a>
+             <!-- Website com Ícone Link -->
+            <a href="https://robertovieira.com.br" target="_blank" rel="noopener noreferrer" title="Website">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+            </a>
+        </div>
+    </div>
+</body>
+</html> 
