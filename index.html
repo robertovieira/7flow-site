@@ -95,7 +95,7 @@
             padding: 0.05em 0.2em;
             border-radius: 2px;
             background-color: rgba(0, 0, 0, 0.01);
-            font-size: 0.9em; /* Ainda menor que o texto normal */
+            font-size: 0.75em; /* Reduzido de 0.85em para 0.75em */
             border: 1px solid rgba(0, 0, 0, 0.03);
             display: inline-block;
             position: relative;
@@ -118,7 +118,7 @@
 
         /* --- Footer de Contato Horizontal --- */
         .footer-contact {
-            margin-top: 3rem; /* Espaço acima do footer */
+            margin-top: 5rem; /* Aumentado de 3rem para 5rem */
             width: 100%;
             display: flex;
             justify-content: center;
@@ -128,13 +128,14 @@
             opacity: 0;
             transform: translateY(15px);
             animation: slideUpFadeIn 0.8s 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+            color: #86868b; /* Cor mais clara para o footer */
         }
 
         .footer-contact .contact-item {
             display: flex;
             align-items: center;
-            color: #555;
-            font-size: 0.9rem; /* Texto do telefone um pouco menor */
+            color: #86868b; /* Alterado de #555 para #86868b */
+            font-size: 0.85rem; /* Reduzido de 0.9rem para 0.85rem */
             font-weight: 400; /* Reduzido de 500 para 400 (regular) */
         }
 
@@ -152,9 +153,10 @@
         }
 
         .footer-contact svg {
-            width: 22px; /* Ícones ligeiramente maiores */
-            height: 22px;
+            width: 18px; /* Reduzido de 22px para 18px */
+            height: 18px; /* Reduzido de 22px para 18px */
             fill: currentColor; /* Cor herdada do elemento pai (a ou span) */
+            opacity: 0.8; /* Adicionado para tornar os ícones mais sutis */
         }
 
          .footer-contact .phone-number {
@@ -256,9 +258,8 @@
 
         /* Estilo para o contêiner de palavras-chave */
         .keywords-container {
-            display: inline-flex;
-            flex-wrap: nowrap;
-            white-space: nowrap;
+            display: inline; /* Alterado de inline-flex para inline */
+            white-space: normal; /* Alterado de nowrap para normal */
             margin: 0 0.2em;
             max-width: none; /* Remove qualquer restrição de largura */
             overflow: visible; /* Garante que o conteúdo não seja cortado */
@@ -278,7 +279,8 @@
         <div class="main-content">
             <h1>7Flow<span class="domain-suffix">.cloud</span></h1>
             <p class="description">
-                Projeto pessoal dedicado ao estudo contínuo de <span class="keywords-container"><strong>Programação</strong>, <strong>Inteligência Artificial</strong>, <strong>Automação</strong> e <strong>DevOps</strong></span>.
+                Projeto pessoal dedicado ao estudo contínuo de<br>
+                <span class="keywords-container"><strong>Programação</strong>, <strong>Inteligência Artificial</strong>, <strong>Automação</strong> e <strong>DevOps</strong></span>.
             </p>
         </div>
 
