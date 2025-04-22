@@ -14,17 +14,14 @@
         body, html {
             height: 100%;
             margin: 0;
-            /* Gradiente muito sutil */
-            background: linear-gradient(150deg, #f9f9f9 0%, #e8e8ed 100%);
-            background-size: 200% 200%; /* Necessário para animar o gradiente */
+            background: #f9f9f9;
             color: #1d1d1f;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
             overflow: hidden;
-            /* Animação do gradiente + fade-in inicial */
-            animation: subtleGradientShift 15s ease infinite, fadeInBody 1s ease-out;
+            animation: backgroundChange 15s infinite, fadeInBody 1s ease-out;
         }
 
         .content-wrapper {
@@ -159,6 +156,35 @@
             100% { background-position: 0% 50%; }
         }
 
+        @keyframes backgroundChange {
+            0% {
+                background: #f9f9f9; /* Branco suave */
+            }
+            12.5% {
+                background: #f0f8ff; /* Azul muito claro */
+            }
+            25% {
+                background: #fff5f5; /* Rosa muito claro */
+            }
+            37.5% {
+                background: #f5fff5; /* Verde muito claro */
+            }
+            50% {
+                background: #fffaf0; /* Amarelo muito claro */
+            }
+            62.5% {
+                background: #f5f0ff; /* Roxo muito claro */
+            }
+            75% {
+                background: #fff0f5; /* Rosa claro */
+            }
+            87.5% {
+                background: #f0fff5; /* Verde água claro */
+            }
+            100% {
+                background: #f9f9f9; /* Volta ao início */
+            }
+        }
 
         /* --- Responsividade --- */
         @media (max-width: 768px) {
